@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "prepare": "husky install",
+    "lint": "npm-run-all lint:backend lint:frontend",
+    "lint:backend": "cd backend && npm run lint",
+    "lint:frontend": "cd frontend && npm run lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "husky": "8.0.3",
-    "lint-staged": "^13.2.2"
+    "lint-staged": "13.2.2",
+    "npm-run-all": "4.1.5"
   }
 }
