@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prepare": "husky install",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo empty",
     "precommit": "npm-run-all precommit:backend precommit:frontend",
     "precommit:backend": "cd backend && npm run precommit",
     "precommit:frontend": "cd frontend && npm run precommit"
