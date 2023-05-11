@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "start": "node build/index.js",
     "test": "echo empty",
     "dev": "ts-node-dev src/index.ts",
-    "start": "node build/index.js",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "precommit": "lint-staged"
   },
