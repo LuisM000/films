@@ -8,6 +8,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   rules: {
-    quotes: ['error', 'single']
+    quotes: ['error', 'single'],
+    semi: ['error', 'never']
   },
 }
