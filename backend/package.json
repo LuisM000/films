@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "test": "echo empty",
     "dev": "ts-node-dev src/index.ts",
     "start": "node build/index.js",
-    "tsc": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "precommit": "lint-staged"
   },
