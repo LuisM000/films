@@ -17,6 +17,8 @@ jobs:
             node-version: 18.4.0
       - name: Change to Frontend directory
         run: cd frontend
+      - name: Current directory
+        run: echo $PWD
       - name: Install dependencies
         run: npm install
       - name: Lint
