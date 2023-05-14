@@ -1,14 +1,5 @@
-import './App.css'
+import { RouterComponent } from '@/core/routes/router.component'
 
-function App() {
-
-  return (
-    <>
-      <div>
-        Hola mundo!!
-      </div>
-    </>
-  )
+export const App = () => {
+  return <RouterComponent />
 }
-
-export default App
