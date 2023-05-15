@@ -11,5 +11,8 @@
       "src": "/(.*)",
       "dest": "src/server.ts"
     }
-  ]
+  ],
+  "github": {
+    "silent": true
+  }
 }
