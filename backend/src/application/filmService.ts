@@ -2,10 +2,6 @@ import { BasicFilm } from 'common/models'
 
 export class FilmService {
 
-  constructor() {
-    console.log('First')
-  }
-
   getAll(): Array<BasicFilm> {
     return [
       {

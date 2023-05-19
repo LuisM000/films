@@ -6,7 +6,5 @@ module.exports = {
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
-  typeRoots: ['./node_modules/@types', './types'],
-
+  testMatch: ['**/__tests__/**/*.test.[jt]s?(x)'],
 }
