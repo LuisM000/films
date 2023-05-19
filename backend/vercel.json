@@ -12,6 +12,12 @@
       "dest": "src/index.ts"
     }
   ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api"
+    }
+  ],
   "github": {
     "silent": true
   }
