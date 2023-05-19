@@ -14,7 +14,7 @@ export class Server {
     const app = express()
       .use(express.json())
       .use(scopePerRequest(this.container.invoke()))
-      .use(loadControllers('controllers/*.*', { cwd: __dirname }))
+      .use(loadControllers('controllers/*.js', { cwd: __dirname }))
 
     //const configFilePath = path.join(__dirname, 'config', 'app.config.js')
     //const controllersPath = path.join(path.dirname(configFilePath), 'controllers')
