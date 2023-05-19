@@ -9,6 +9,6 @@ export class App {
     this.expressApp = express()
       .use(express.json())
       .use(scopePerRequest(container.invoke()))
-      .use(loadControllers('controllers/*.ts', { cwd: __dirname }))
+      .use(loadControllers('controllers/*.js', { cwd: __dirname }))
   }
 }
