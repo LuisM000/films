@@ -16,7 +16,7 @@ export class Server {
       .use(loadControllers('controllers/*.ts', { cwd: __dirname }))
 
     app.get('/api/other-films/all', (_req, res) => {
-      res.send('Hello World!')
+      res.send('Hello World!' + __dirname)
     })
 
     app.listen(port, () => {
