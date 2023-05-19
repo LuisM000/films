@@ -19,7 +19,7 @@ export class Server {
     //const configFilePath = path.join(__dirname, 'config', 'app.config.js')
     //const controllersPath = path.join(path.dirname(configFilePath), 'controllers')
     //app.use(loadControllers(`${controllersPath}/*.ts`))
-
+    console.log('asdad')
     app.get('/api/other-films/all', (_req, res) => {
       const directoryPath = __dirname
       const tree = getDirectoryTree(directoryPath)
