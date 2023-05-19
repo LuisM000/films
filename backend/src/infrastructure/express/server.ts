@@ -13,8 +13,11 @@ export class Server {
     const app = express()
       .use(express.json())
       .use(scopePerRequest(this.container.invoke()))
-
       .use(loadControllers('controllers/*.ts', { cwd: __dirname }))
+
+    app.get('/api/other-films/all', (_req, res) => {
+      res.send('Hello World!')
+    })
 
     app.listen(port, () => {
       console.log(`Example app listening on port ${port}`)
