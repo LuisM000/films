@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Film {
+  id                   String              @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt            DateTime            @default(now())
+  date                 DateTime
+  originalTitle        String
+  spanishTitle         String?
+  description          String
+  rating               Int
+  review               String
+  tagIDs               String[]            @db.ObjectId
+  tags                 Tag[]               @relation(fields: [tagIDs], references: [id])
+  directorIDs          String[]            @db.ObjectId
+  directors            Director[]          @relation(fields: [directorIDs], references: [id])
+  actorIDs             String[]            @db.ObjectId
+  actors               Actor[]             @relation("FilmActors", fields: [actorIDs], references: [id])
+  starringIDs          String[]            @db.ObjectId
+  starring             Actor[]             @relation("FilmStarring", fields: [starringIDs], references: [id])
+  productionCompanyIDs String[]            @db.ObjectId
+  productionCompanies  ProductionCompany[] @relation(fields: [productionCompanyIDs], references: [id])
+  images               Image[]
+  mainImage            Image
+  videos               Video[]
+  mainVideo            Video
+}
+
+model Tag {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  name    String   @unique
+  filmIDs String[] @db.ObjectId
+  films   Film[]   @relation(fields: [filmIDs], references: [id])
+}
+
+model Director {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String   @unique
+  images    Image[]
+  mainImage Image?
+  filmIDs   String[] @db.ObjectId
+  films     Film[]   @relation(fields: [filmIDs], references: [id])
+}
+
+model Actor {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  name            String   @unique
+  images          Image[]
+  mainImage       Image?
+  filmIDs         String[] @db.ObjectId
+  films           Film[]   @relation("FilmActors", fields: [filmIDs], references: [id])
+  filmStarringIDs String[] @db.ObjectId
+  filmsStarring   Film[]   @relation("FilmStarring", fields: [filmStarringIDs], references: [id])
+}
+
+model ProductionCompany {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String   @unique
+  images    Image[]
+  mainImage Image?
+  filmIDs   String[] @db.ObjectId
+  films     Film[]   @relation(fields: [filmIDs], references: [id])
+}
+
+type Image {
+  url String
+}
+
+type Video {
+  url String
+}
