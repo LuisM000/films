@@ -17,16 +17,17 @@ model Film {
   originalTitle        String
   spanishTitle         String?
   description          String
-  rating               Int
+  rating               Float
   review               String
+  duration             Int
+  recommended          Boolean             @default(false)
+  featured             Boolean             @default(false)
   tagIDs               String[]            @db.ObjectId
   tags                 Tag[]               @relation(fields: [tagIDs], references: [id])
   directorIDs          String[]            @db.ObjectId
   directors            Director[]          @relation(fields: [directorIDs], references: [id])
-  actorIDs             String[]            @db.ObjectId
-  actors               Actor[]             @relation("FilmActors", fields: [actorIDs], references: [id])
-  starringIDs          String[]            @db.ObjectId
-  starring             Actor[]             @relation("FilmStarring", fields: [starringIDs], references: [id])
+  featuredActorIDs     String[]            @db.ObjectId
+  featuredActors       Actor[]             @relation("featuredActors", fields: [featuredActorIDs], references: [id])
   productionCompanyIDs String[]            @db.ObjectId
   productionCompanies  ProductionCompany[] @relation(fields: [productionCompanyIDs], references: [id])
   images               Image[]
@@ -52,14 +53,14 @@ model Director {
 }
 
 model Actor {
-  id              String   @id @default(auto()) @map("_id") @db.ObjectId
-  name            String   @unique
-  images          Image[]
-  mainImage       Image?
-  filmIDs         String[] @db.ObjectId
-  films           Film[]   @relation("FilmActors", fields: [filmIDs], references: [id])
-  filmStarringIDs String[] @db.ObjectId
-  filmsStarring   Film[]   @relation("FilmStarring", fields: [filmStarringIDs], references: [id])
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  name             String   @unique
+  images           Image[]
+  mainImage        Image?
+  filmIDs          String[] @db.ObjectId
+  films            Film[]   @relation("FilmActors", fields: [filmIDs], references: [id])
+  featuredActorIDs String[] @db.ObjectId
+  featuredActors   Film[]   @relation("featuredActors", fields: [featuredActorIDs], references: [id])
 }
 
 model ProductionCompany {

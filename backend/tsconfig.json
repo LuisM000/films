@@ -27,7 +27,8 @@
     "skipLibCheck": true, /* Skip type checking all .d.ts files. */
     "experimentalDecorators": true,
     "types": [
-      "@types/jest"
+      "@types/jest",
+      "node"
     ]
   }
 }
