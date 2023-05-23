@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = "dummy"
+  url      = "mongodb+srv://dummy:1234@cluster0.nzw3vhy.mongodb.net/dummy?retryWrites=true&w=majority"
 }
 
 model Film {
