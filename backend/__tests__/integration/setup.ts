@@ -1,10 +1,10 @@
-import { createPrismaClient } from '../../src/shared/infrastructure/prisma'
-import { config } from '../../src/shared/infrastructure/config'
+import { PrismaClient } from '@prisma/client'
+import { Container } from '../../src/shared/infrastructure/container'
 
-const prisma = createPrismaClient(config)
+const container = new Container()
+const prisma = container.invoke().resolve<PrismaClient>('db')
 
 export default prisma
-
 
 beforeEach(async () => {
   await prisma.film.create({
