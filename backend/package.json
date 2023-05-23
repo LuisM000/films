@@ -7,7 +7,7 @@
     "link": "npm link common",
     "build": "tsc",
     "postinstall": "prisma generate",
-    "start": "node build/index.js",
+    "start": "node build/src/index.js",
     "test": "npm run test:unit & npm run test:integration",
     "test:unit": "NODE_ENV=test jest --config jest.unit.config.js --runInBand --verbose",
     "test:integration": "NODE_ENV=test jest --config jest.integration.config.js --runInBand --verbose",
