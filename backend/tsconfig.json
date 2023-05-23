@@ -3,7 +3,8 @@
     "./coverage",
     "./dist",
     "__tests__",
-    "jest.config.js",
+    "jest.unit.config.js",
+    "jest.integration.config.js",
     "node_modules"
   ],
   "compilerOptions": {

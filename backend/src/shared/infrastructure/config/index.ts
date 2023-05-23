@@ -1,16 +1,21 @@
 import * as dotenv from 'dotenv'
+import path from 'path'
+const { NODE_ENV } = process.env
 
-dotenv.config()
+dotenv.config({
+  path: NODE_ENV === 'test'
+    ? path.resolve(process.cwd(), '.env.test')
+    : path.resolve(process.cwd(), '.env')
+})
 
 import PRODUCTION from './environments/pro'
 import DEVELOPMENT from './environments/dev'
 import TEST from './environments/test'
 
-const { NODE_ENV } = process.env
-
 export type Configuration = {
-  NODE_ENV: string;
-  PORT: number;
+  NODE_ENV: string
+  PORT: number
+  DATABASE_URL: string
 };
 
 let currentConfig: Configuration = DEVELOPMENT

@@ -1,8 +1,13 @@
 import { PrismaClient } from '@prisma/client'
+import { Container } from '../../src/shared/infrastructure/container'
 
-const prisma = new PrismaClient()
+const container = new Container()
+const prisma = container.invoke().resolve<PrismaClient>('db')
 
-async function main() {
+export default prisma
+
+
+beforeEach(async () => {
   await prisma.film.create({
     data: {
       originalTitle: 'Sweeney Todd: The Demon Barber of Fleet Street',
@@ -83,13 +88,15 @@ async function main() {
       }
     },
   })
-}
-main()
-  .then(async () => {
-    await prisma.$disconnect()
-  })
-  .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+})
+
+
+afterEach(async () => {
+  await prisma.$transaction([
+    prisma.actor.deleteMany(),
+    prisma.director.deleteMany(),
+    prisma.film.deleteMany(),
+    prisma.productionCompany.deleteMany(),
+    prisma.tag.deleteMany()
+  ])
+})

@@ -5,3 +5,5 @@ export interface BasicFilm {
   rating: number;
   mainImage: string;
 }
+
+export type BasicFilms = BasicFilm[];

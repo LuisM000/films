@@ -1,10 +1,12 @@
-import { FilmsController } from '../../infrastructure/express/controllers/films.controller'
-import { FilmService } from '../../application/filmService'
-import { AwilixContainer, InjectionMode, asClass, asValue, createContainer } from 'awilix'
+import { FilmsController } from '../../infrastructure/express/controllers/filmsController'
+import { AwilixContainer, InjectionMode, asClass, asFunction, asValue, createContainer } from 'awilix'
 import { Server } from '../../infrastructure/express/server'
 import { App } from '../../infrastructure/express/app'
 import { config } from './config'
 import { ServerLogger } from '../../infrastructure/logger'
+import { createPrismaClient } from './prisma'
+import { GetFilmsUseCase } from '../../application/useCases/getFilmsUseCase'
+import { PrismaFilmQueries } from '../../infrastructure/queries/prismaFilmQueries'
 
 export class Container {
   private readonly container: AwilixContainer
@@ -26,9 +28,11 @@ export class Container {
       app: asClass(App).singleton(),
       server: asClass(Server).singleton(),
       config: asValue(config),
+      db: asFunction(createPrismaClient).singleton(),
       logger: asClass(ServerLogger).singleton(),
-      filmService: asClass(FilmService).scoped(),
-      filmController: asClass(FilmsController).scoped()
+      filmQueries: asClass(PrismaFilmQueries).singleton(),
+      getFilmsUseCase: asClass(GetFilmsUseCase).singleton(),
+      filmController: asClass(FilmsController).singleton()
     })
   }
 }
