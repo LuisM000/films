@@ -1,4 +1,4 @@
-import { ILogger } from 'src/shared/domain/ILogger'
+import { ILogger } from '../../shared/domain/ILogger'
 
 export class ServerLogger implements ILogger {
 

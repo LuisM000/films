@@ -1,6 +1,6 @@
-import { FilmQueries } from '@/application/queries/filmQueries'
 import { PrismaClient } from '@prisma/client'
 import { BasicFilms } from 'common/models/basicFilm'
+import { FilmQueries } from '../../application/queries/filmQueries'
 
 export class PrismaFilmQueries implements FilmQueries {
 

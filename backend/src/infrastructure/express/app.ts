@@ -1,7 +1,7 @@
 import express, { Application } from 'express'
 import { loadControllers, scopePerRequest } from 'awilix-express'
-import { Container } from '@/shared/infrastructure/container'
 import path from 'path'
+import { Container } from '../../shared/infrastructure/container'
 
 export class App {
   public readonly expressApp: Application
