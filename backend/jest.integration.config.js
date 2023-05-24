@@ -8,6 +8,7 @@ module.exports = {
   },
   testMatch: ['**/__tests__/integration/**/*.test.[jt]s?(x)'],
   setupFilesAfterEnv: [
+    'jest-extended/all',
     './__tests__/integration/setup.ts'
   ]
 }
