@@ -1,4 +1,5 @@
 import { prismaFilmQueries } from './utils'
+import 'jest-extended'
 
 describe('Prisma queries', () => {
   test('should return all films', async () => {

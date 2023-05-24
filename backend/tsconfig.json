@@ -7,9 +7,6 @@
     "jest.integration.config.js",
     "node_modules"
   ],
-  "files": [
-    "global.d.ts"
-  ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
