@@ -3,7 +3,7 @@ import { GetFilmsUseCase } from '../../../../../src/application/useCases/getFilm
 import { BasicFilm } from 'common/models/basicFilm'
 import { request } from 'express'
 import { mockResponse } from './utils'
-import { FilmQueries } from '../../../../../src/application/queries/filmQueries'
+import { mock } from 'jest-mock-extended'
 
 describe('Films Controller', () => {
   it('should get all films successfully', async () => {
@@ -14,21 +14,16 @@ describe('Films Controller', () => {
       rating: 9.9,
       mainImage: 'https://example.com/mock-film1.jpg'
     }]
-
-    const mockFilmQueries: FilmQueries = {
-      all: jest.fn().mockResolvedValue(allFilms)
-    }
-
-    const getFilmsUseCase: GetFilmsUseCase = new GetFilmsUseCase(mockFilmQueries)
-
+    const mockGetFilmsUseCase = mock<GetFilmsUseCase>()
+    mockGetFilmsUseCase.invoke.mockResolvedValue(allFilms)
     const req = request
     const res = mockResponse()
-    const filmsController = new FilmsController(getFilmsUseCase)
+    const filmsController = new FilmsController(mockGetFilmsUseCase)
 
     await filmsController.getAllFilms(req, res)
 
     expect(res.status).toHaveBeenCalledWith(200)
     expect(res.json).toHaveBeenCalledWith(allFilms)
-    expect(mockFilmQueries.all).toHaveBeenCalled()
+    expect(mockGetFilmsUseCase.invoke).toHaveBeenCalledOnce()
   })
 })
