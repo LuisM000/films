@@ -1,6 +1,6 @@
-import { ILogger } from '../../shared/domain/ILogger'
+import Logger from '../../shared/domain/Logger'
 
-export class ServerLogger implements ILogger {
+export class ServerLogger implements Logger {
 
   public debug(message: string): void {
     console.debug(message)
