@@ -1,4 +1,4 @@
-import Logger from '../../shared/domain/Logger'
+import { Logger } from '../../shared/domain/Logger'
 
 export class ServerLogger implements Logger {
 
