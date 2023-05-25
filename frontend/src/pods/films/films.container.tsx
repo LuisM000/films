@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Films } from './films.component'
+import { FilmsComponent } from './films.component'
 import { linkRoutes } from '@/core/routes'
 import { useNavigate } from 'react-router-dom'
 import { getFilms } from './films.api'
@@ -16,5 +16,5 @@ export const FilmsContainer: React.FC = () => {
   const handleOnClickFilm = (film: BasicFilm) => {
     navigate(linkRoutes.film(film.id))
   }
-  return <Films films={films} onClick={handleOnClickFilm} />
+  return <FilmsComponent films={films} onClick={handleOnClickFilm} />
 }

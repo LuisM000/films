@@ -1,14 +1,12 @@
+import { BasicFilm, BasicFilms } from 'common/models/basicFilm'
 import React from 'react'
-import { Film } from './film.model'
 
-interface FilmsProps {
-  films: Film[];
-  onClick?: (film: Film) => void
+interface FilmsComponentProps {
+  films: BasicFilms;
+  onClick?: (film: BasicFilm) => void
 }
 
-
-export const Films: React.FC<FilmsProps> = ({ films, onClick }) => {
-
+export const FilmsComponent: React.FC<FilmsComponentProps> = ({ films, onClick }) => {
   return (
     <ul>
       {
@@ -17,7 +15,7 @@ export const Films: React.FC<FilmsProps> = ({ films, onClick }) => {
             <li key={film.id} onClick={() => onClick && onClick(film)}>
               <div>
                 <h2>{film.title}</h2>
-                <small>{film.originalTitle}</small>
+                <small>{film.title}</small>
                 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
                 <small>{film.rating}</small>
               </div>
