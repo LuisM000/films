@@ -1,8 +1,7 @@
 import { apiRoutes } from '@/common-app/api-configuration/api.constants'
-import axios from 'axios'
 import { BasicFilms } from 'common/models/basicFilm'
+import { get } from '@/common-app/api-configuration/api'
 
-export const getFilms = async (): Promise<BasicFilms> => {
-  const { data } = await axios.get<BasicFilms>(apiRoutes.films.list)
-  return data
+export const getFilms = (): Promise<BasicFilms> => {
+  return get<BasicFilms>(apiRoutes.films.list)
 }
