@@ -1,7 +1,5 @@
 import * as dotenv from 'dotenv'
 import path from 'path'
-const { NODE_ENV } = process.env
-
 dotenv.config()
 
 import { defineConfig } from 'vite'
@@ -18,7 +16,7 @@ export default defineConfig(() => {
     server: {
       proxy: {
         '/api': {
-          target: process.env.API_URL,
+          target: 'https://films-bxxq.vercel.app/',
           changeOrigin: true,
         },
       },
