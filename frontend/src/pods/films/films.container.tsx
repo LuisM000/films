@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { FilmsComponent } from './films.component'
-import { linkRoutes } from '@/core/routes'
-import { useNavigate } from 'react-router-dom'
-import { getFilms } from './films.api'
-import { BasicFilm, BasicFilms } from 'common/models/basicFilm'
+import LoadingComponent from '@/common/components/loading.component'
+import FilmsComponent from './films.component'
+import useFilmsContainer from './films.container.hook'
 
-export const FilmsContainer: React.FC = () => {
-  const navigate = useNavigate()
-  const [films, setFilms] = useState<BasicFilms>([])
+const FilmsContainer: React.FC = () => {
+  const { films, handleOnClickFilm, isLoading } = useFilmsContainer()
 
-  useEffect(() => {
-    getFilms().then(setFilms)
-  }, [])
-
-  const handleOnClickFilm = (film: BasicFilm) => {
-    navigate(linkRoutes.film(film.id))
+  if (isLoading) {
+    return <LoadingComponent />
   }
+
   return <FilmsComponent films={films} onClick={handleOnClickFilm} />
 }
+
+export default FilmsContainer
