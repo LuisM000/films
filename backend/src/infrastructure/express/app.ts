@@ -13,5 +13,8 @@ export class App {
       .use(express.json())
       .use(scopePerRequest(container.invoke()))
       .use(loadControllers(`controllers/*${path.extname(__filename)}`, { cwd: __dirname }))
+      .get('/', (_req, res) => {
+        res.send('Welcome to API')
+      })
   }
 }
