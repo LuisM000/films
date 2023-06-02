@@ -1,5 +1,5 @@
 beforeEach(() => {
-  cy.visit('http://localhost:5173/')
+  cy.visit('/')
 })
 
 describe('Films page', () => {
