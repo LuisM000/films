@@ -5,6 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start:backend": "cd ../../backend && npm run start",
+    "start:frontend": "cd ../../frontend && npm run start",
     "cypress:open": "cypress open",
     "test:e2e": "cypress run --browser chrome"
   },
