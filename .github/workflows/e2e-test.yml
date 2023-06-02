@@ -1,0 +1,43 @@
+name: e2e Cypress
+
+on:
+  push:
+    branches:
+      - e2e-cypress
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.4.0
+          cache: 'npm'
+      - name: Prepare Frontend
+        run: |
+          npm install --no-audit --no-fund --no-optional
+          npm run build
+        working-directory: frontend
+      - name: Prepare Backend
+        run: |
+          npm install --no-audit --no-fund --no-optional
+          npm run build
+        working-directory: backend
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          start: |
+            npm run start:frontend
+            npm run start:backend
+          wait-on: 'http://localhost:5173, http://localhost:3000'
+          wait-on-timeout: 120
+          working-directory: e2e-tests/cypress
+
+
+
+
+          
