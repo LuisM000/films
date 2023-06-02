@@ -34,7 +34,7 @@ jobs:
             npm run start:frontend
             npm run start:backend
           wait-on: 'http://[::1]:5173, http://[::1]:3000'
-          wait-on-timeout: 120
+          wait-on-timeout: 30
           working-directory: e2e-tests/cypress
 
 
