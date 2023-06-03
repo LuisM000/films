@@ -18,8 +18,6 @@ jobs:
           node-version: 18.4.0
           cache: 'npm'
       - name: Prepare Frontend
-        env:
-          VITE_API_URL: ${{ env.API_CYPRESS_ENDPOINT }} 
         run: |
           npm install --no-audit --no-fund --no-optional
           npm run build
@@ -33,7 +31,7 @@ jobs:
         uses: cypress-io/github-action@v5
         env:
           DATABASE_URL: ${{ secrets.DATABASE_CYPRESS_URL }}
-          VITE_API_URL: ${{ env.API_CYPRESS_ENDPOINT }} 
+          VITE_API_URL: http://localhost:3000/
         with:
           start: |
             npm run start:frontend
