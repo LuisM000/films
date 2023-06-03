@@ -3,7 +3,7 @@ name: e2e Cypress
 on:
   push:
     branches:
-      - e2e-cypress
+      - main
 
 jobs:
   build:
