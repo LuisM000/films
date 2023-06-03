@@ -27,10 +27,12 @@ jobs:
           npm install --no-audit --no-fund --no-optional
           npm run build
         working-directory: backend
-      - name: Cypress run
-        env:
-          DATABASE_URL: ${{ env.DATABASE_CYPRESS_URL }}  
+      - name: Cypress run          
         uses: cypress-io/github-action@v5
+        env:
+          DATABASE_URL: ${{ env.DATABASE_CYPRESS_URL }}
+          run: |
+            echo $MY_VARIABLE
         with:
           start: |
             npm run start:frontend
