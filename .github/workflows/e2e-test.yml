@@ -31,7 +31,7 @@ jobs:
         uses: cypress-io/github-action@v5
         env:
           DATABASE_URL: ${{ secrets.DATABASE_CYPRESS_URL }}
-          VITE_API_URL: http://localhost:3000/
+          VITE_API_URL: ${{ env.API_CYPRESS_ENDPOINT }}
         with:
           start: |
             npm run start:frontend
