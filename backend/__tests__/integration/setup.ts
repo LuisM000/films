@@ -1,6 +1,9 @@
 import { PrismaClient } from '@prisma/client'
 import { Container } from '../../src/shared/infrastructure/container'
 import 'jest-extended'
+
+jest.setTimeout(15000)
+
 const container = new Container()
 const prisma = container.invoke().resolve<PrismaClient>('db')
 
