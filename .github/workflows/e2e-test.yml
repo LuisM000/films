@@ -22,7 +22,7 @@ jobs:
           npm install --no-audit --no-fund --no-optional
           npm run build
         working-directory: frontend
-      - name: Prepare Backend
+      - name: Prepare Backend          
         run: |
           npm install --no-audit --no-fund --no-optional
           npm run build
@@ -30,7 +30,7 @@ jobs:
       - name: Cypress run          
         uses: cypress-io/github-action@v5
         env:
-          DATABASE_URL: ${{ env.DATABASE_CYPRESS_URL }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}   
         with:
           start: |
             npm run start:frontend
