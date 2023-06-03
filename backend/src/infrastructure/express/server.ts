@@ -10,6 +10,7 @@ export class Server {
   public start() {
     this.app.expressApp.listen(this.config.PORT, () => {
       this.logger.info(`server is running on port ${this.config.PORT}. Environment ${this.config.NODE_ENV}`)
+      this.logger.info(`server DB ${this.config.DATABASE_URL}`)
     })
   }
 }
