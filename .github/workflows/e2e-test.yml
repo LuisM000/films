@@ -29,12 +29,12 @@ jobs:
         working-directory: backend
       - name: Cypress run
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_CYPRESS_URL }}  
+          DATABASE_URL: ${{ env.DATABASE_CYPRESS_URL }}  
         uses: cypress-io/github-action@v5
         with:
           start: |
             npm run start:frontend
-            DATABASE_URL=${{ secrets.DATABASE_CYPRESS_URL }} npm run start:backend
+            DATABASE_URL=${{ env.DATABASE_CYPRESS_URL }} npm run start:backend
           wait-on: 'http://[::1]:5173, http://[::1]:3000'
           wait-on-timeout: 30
           working-directory: e2e-tests/cypress
