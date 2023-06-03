@@ -30,7 +30,7 @@ jobs:
       - name: Cypress run          
         uses: cypress-io/github-action@v5
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}   
+          DATABASE_URL: ${{ secrets.DATABASE_CYPRESS_URL }}   
         with:
           start: |
             npm run start:frontend
