@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:backend": "cd ../../backend && npm run start",
+    "start:backend": "cd ../../backend && dotenv -e ../e2e-tests/cypress/.env.backend npm run start",
     "start:frontend": "cd ../../frontend && npm run start",
     "cypress:open": "cypress open",
     "test": "cypress run --browser chrome"
@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "12.13.0"
+    "cypress": "12.13.0",
+    "dotenv-cli": "7.2.1"
   }
 }
