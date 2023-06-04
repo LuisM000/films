@@ -15,7 +15,8 @@ describe('Films Container', () => {
     mockUseFilmsContainer.mockReturnValue({
       films: films,
       handleOnClickFilm: vi.fn(),
-      isLoading: false
+      isLoading: false,
+      isError: false
     })
 
     render(<FilmsContainer />)
@@ -33,11 +34,25 @@ describe('Films Container', () => {
     mockUseFilmsContainer.mockReturnValue({
       isLoading: true,
       films: [],
-      handleOnClickFilm: vi.fn()
+      handleOnClickFilm: vi.fn(),
+      isError: false
     })
 
     render(<FilmsContainer />)
 
     expect(screen).toContainLoading()
+  })
+
+  test('should display error when isError', () => {
+    mockUseFilmsContainer.mockReturnValue({
+      isError: true,
+      isLoading: false,
+      films: [],
+      handleOnClickFilm: vi.fn()
+    })
+
+    render(<FilmsContainer />)
+
+    expect(screen).toContainError()
   })
 })

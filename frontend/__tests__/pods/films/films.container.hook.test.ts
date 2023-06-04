@@ -19,8 +19,8 @@ vi.mock('../../../src/pods/films/films.api')
 describe('Films Container Hook', () => {
   test('should be load films from API', async () => {
     const films = givenABasicFilms()
-
     mockGetFilms.mockResolvedValueOnce(films)
+
     const { result } = renderHook(() => useFilmsContainer())
 
     await waitFor(() => {
@@ -31,8 +31,8 @@ describe('Films Container Hook', () => {
 
   test('should be loading until films are loaded', async () => {
     const films = givenABasicFilms()
-
     mockGetFilms.mockResolvedValueOnce(films)
+
     const { result } = renderHook(() => useFilmsContainer())
 
     expect(result.current.isLoading).toBe(true)
@@ -45,16 +45,45 @@ describe('Films Container Hook', () => {
     expect(result.current.isLoading).toBe(false)
   })
 
+  test('should be error when get films throws error', async () => {
+    mockGetFilms.mockRejectedValue(new Error())
+
+    const { result } = renderHook(() => useFilmsContainer())
+
+    expect(result.current.isError).toBe(false)
+
+    await waitFor(() => {
+      expect(result.current.isError).toBe(true)
+    })
+  })
+
   test('should navigate to film detail when click film', async () => {
     const films = givenABasicFilms()
     const filmIdToNavigate = films[0].id
-
     mockGetFilms.mockResolvedValueOnce(films)
+
     const { result } = renderHook(() => useFilmsContainer())
 
     result.current.handleOnClickFilm(filmIdToNavigate)
 
     expect(mockedUsedNavigate).toHaveBeenCalledTimes(1)
     expect(mockedUsedNavigate).toHaveBeenCalledWith(`/film/${filmIdToNavigate}`)
+  })
+
+  test('approval test', async () => {
+    const films = givenABasicFilms()
+    mockGetFilms.mockResolvedValueOnce(films)
+
+    const { result } = renderHook(() => useFilmsContainer())
+
+    expect(result.current.films).toEqual([])
+    expect(result.current.isLoading).toBe(true)
+    expect(result.current.isError).toBe(false)
+
+    await waitFor(() => {
+      expect(result.current.films).toBe(films)
+      expect(result.current.isLoading).toBe(false)
+      expect(result.current.isError).toBe(false)
+    })
   })
 })

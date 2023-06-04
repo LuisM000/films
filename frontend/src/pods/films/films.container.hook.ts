@@ -8,20 +8,27 @@ import { linkRoutes } from '@/core/routes'
 export interface FilmContainerResult {
   films: BasicFilms;
   handleOnClickFilm: (filmId: string) => void;
-  isLoading: boolean
+  isLoading: boolean,
+  isError: boolean
 }
 
 const useFilmsContainer = (): FilmContainerResult => {
   const navigate = useNavigate()
   const [films, setFilms] = useState<BasicFilms>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [isError, setIsError] = useState<boolean>(false)
 
   useEffect(() => {
     setIsLoading(true)
+    setIsError(false)
     getFilms()
-      .then().then(films => {
+      .then(films => {
         setIsLoading(false)
         setFilms(films)
+      })
+      .catch(() => {
+        setIsLoading(false)
+        setIsError(true)
       })
   }, [])
 
@@ -32,7 +39,8 @@ const useFilmsContainer = (): FilmContainerResult => {
   return {
     films,
     handleOnClickFilm,
-    isLoading
+    isLoading,
+    isError
   }
 }
 
