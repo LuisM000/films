@@ -1,5 +1,6 @@
 import { BasicFilms } from 'common/models/basicFilm'
 import React from 'react'
+import FilmCardComponent from './film-card.component'
 
 interface FilmsComponentProps {
   films: BasicFilms;
@@ -8,23 +9,17 @@ interface FilmsComponentProps {
 
 const FilmsComponent: React.FC<FilmsComponentProps> = ({ films, onClick }) => {
   return (
-    <ul>
+    <div role='list' className='columns-1 md:columns-2 lg:columns-3 gap-x-4 mx-4'>
       {
         films.map(film => {
           return (
-            <li key={film.id} onClick={() => onClick && onClick(film.id)}>
-              <div>
-                <h2>{film.title}</h2>
-                <small>{film.esTitle}</small>
-                <img src={film.mainImage} alt={film.title} />
-                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                <small>{film.rating}</small>
-              </div>
-            </li>
+            <div role='listitem' className='mb-4' key={film.id} onClick={() => onClick && onClick(film.id)}>
+              <FilmCardComponent film={film} />
+            </div>
           )
         })
       }
-    </ul >
+    </div >
   )
 }
 

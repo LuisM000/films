@@ -26,7 +26,7 @@ describe('Films Container', () => {
       screen.getByText(film.esTitle)
       const image = screen.getByAltText(film.title) as HTMLImageElement
       expect(image.src).toBe(film.mainImage)
-      screen.getByText(film.rating)
+      screen.getByTitle(film.rating)
     })
   })
 

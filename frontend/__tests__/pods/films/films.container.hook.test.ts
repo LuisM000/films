@@ -67,7 +67,7 @@ describe('Films Container Hook', () => {
     result.current.handleOnClickFilm(filmIdToNavigate)
 
     expect(mockedUsedNavigate).toHaveBeenCalledTimes(1)
-    expect(mockedUsedNavigate).toHaveBeenCalledWith(`/film/${filmIdToNavigate}`)
+    expect(mockedUsedNavigate).toHaveBeenCalledWith(`/films/${filmIdToNavigate}`)
   })
 
   test('approval test', async () => {

@@ -5,7 +5,7 @@ import { generatePath } from 'react-router'
 export const switchRoutes: SwitchRoutes = {
   root: '/',
   aboutUs: '/aboutUs',
-  film: '/film/:id'
+  film: '/films/:id'
 }
 
 type NavigationFunction = (id: string) => string;
