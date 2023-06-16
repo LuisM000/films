@@ -5,7 +5,7 @@ interface TagsComponentProps {
   tags: Array<string>
 }
 
-const TagsComponent: React.FC<TagsComponentProps> = ({ tags }) => {
+export const TagsComponent: React.FC<TagsComponentProps> = ({ tags }) => {
   return (
     <div className='flex flex-row flex-wrap gap-2 m-2'>
       {

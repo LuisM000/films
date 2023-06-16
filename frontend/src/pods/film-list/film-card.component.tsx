@@ -1,7 +1,6 @@
-import RatingComponent from '@/common/components/rating.component'
+import { RatingComponent, TagsComponent } from '@/common/components'
 import { BasicFilm } from 'common/models/basicFilm'
 import noImage from '@/images/no-image.jpeg'
-import TagsComponent from '@/common/components/tags.component'
 
 interface FilmCardComponentProps {
   film: BasicFilm;

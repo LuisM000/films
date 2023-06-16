@@ -1,7 +1,6 @@
-import LoadingComponent from '@/common/components/loading.component'
 import FilmListComponent from './film-list.component'
 import useFilmListContainer from './film-list.container.hook'
-import ErrorComponent from '@/common/components/error.component'
+import { ErrorComponent, LoadingComponent } from '@/common/components'
 
 export const FilmListContainer: React.FC = () => {
   const { films, handleOnClickFilm, isLoading, isError } = useFilmListContainer()

@@ -30,7 +30,7 @@ const ratingConfig: RatingConfig<JSX.Element> =
   )
 }
 
-const RatingComponent: React.FC<RatingComponentProps> = ({ rating }) => {
+export const RatingComponent: React.FC<RatingComponentProps> = ({ rating }) => {
   const stars = calculateStars(rating, ratingConfig)
 
   return (

@@ -2,7 +2,7 @@ import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { switchRoutes } from './routes'
 import { FilmListScene, AboutUsScene } from '@/scenes'
-import { AppLayout } from '@/layout/app.layout'
+import { AppLayout } from '@/layout'
 import FilmDetailComponent from '@/pods/film-detail/film-detail.component'
 
 const router = createBrowserRouter([
