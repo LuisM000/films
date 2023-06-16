@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { switchRoutes } from './routes'
 import { FilmListScene, AboutUsScene } from '@/scenes'
 import { AppLayout } from '@/layout'
-import FilmDetailComponent from '@/pods/film-detail/film-detail.component'
+import { FilmDetailComponent } from '@/pods/film-detail'
 
 const router = createBrowserRouter([
   {

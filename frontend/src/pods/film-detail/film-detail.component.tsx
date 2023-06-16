@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 
-const FilmDetailComponent: React.FC = () => {
+export const FilmDetailComponent: React.FC = () => {
   const { id } = useParams()
 
   return (
