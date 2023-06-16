@@ -1,13 +1,13 @@
 import { BasicFilms } from 'common/models/basicFilm'
 import React from 'react'
-import FilmCardComponent from './film-card.component'
+import { FilmCardComponent } from './film-card.component'
 
 interface FilmsComponentProps {
   films: BasicFilms;
   onClick?: (filmId: string) => void
 }
 
-const FilmListComponent: React.FC<FilmsComponentProps> = ({ films, onClick }) => {
+export const FilmListComponent: React.FC<FilmsComponentProps> = ({ films, onClick }) => {
   return (
     <div role='list' className='columns-1 md:columns-2 lg:columns-3 gap-x-4 mx-4'>
       {
@@ -22,5 +22,3 @@ const FilmListComponent: React.FC<FilmsComponentProps> = ({ films, onClick }) =>
     </div >
   )
 }
-
-export default FilmListComponent

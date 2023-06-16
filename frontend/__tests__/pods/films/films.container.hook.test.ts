@@ -1,5 +1,5 @@
 import { describe, test, vi, MockedFunction } from 'vitest'
-import useFilmsContainer from '../../../src/pods/film-list/film-list.container.hook'
+import { useFilmListContainer } from '../../../src/pods/film-list/film-list.container.hook'
 import { renderHook, waitFor } from '@testing-library/react'
 import { getFilms } from '../../../src/pods/film-list/film-list.api'
 import { givenABasicFilms } from '../../utils/testData'
@@ -21,7 +21,7 @@ describe('Films Container Hook', () => {
     const films = givenABasicFilms()
     mockGetFilms.mockResolvedValueOnce(films)
 
-    const { result } = renderHook(() => useFilmsContainer())
+    const { result } = renderHook(() => useFilmListContainer())
 
     await waitFor(() => {
       expect(result.current.films).toBe(films)
@@ -33,7 +33,7 @@ describe('Films Container Hook', () => {
     const films = givenABasicFilms()
     mockGetFilms.mockResolvedValueOnce(films)
 
-    const { result } = renderHook(() => useFilmsContainer())
+    const { result } = renderHook(() => useFilmListContainer())
 
     expect(result.current.isLoading).toBe(true)
 
@@ -48,7 +48,7 @@ describe('Films Container Hook', () => {
   test('should be error when get films throws error', async () => {
     mockGetFilms.mockRejectedValue(new Error())
 
-    const { result } = renderHook(() => useFilmsContainer())
+    const { result } = renderHook(() => useFilmListContainer())
 
     expect(result.current.isError).toBe(false)
 
@@ -62,7 +62,7 @@ describe('Films Container Hook', () => {
     const filmIdToNavigate = films[0].id
     mockGetFilms.mockResolvedValueOnce(films)
 
-    const { result } = renderHook(() => useFilmsContainer())
+    const { result } = renderHook(() => useFilmListContainer())
 
     result.current.handleOnClickFilm(filmIdToNavigate)
 
@@ -74,7 +74,7 @@ describe('Films Container Hook', () => {
     const films = givenABasicFilms()
     mockGetFilms.mockResolvedValueOnce(films)
 
-    const { result } = renderHook(() => useFilmsContainer())
+    const { result } = renderHook(() => useFilmListContainer())
 
     expect(result.current.films).toEqual([])
     expect(result.current.isLoading).toBe(true)

@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import React from 'react'
-import FilmsComponent from '../../../src/pods/film-list/film-list.component'
+import { FilmListComponent } from '../../../src/pods/film-list/film-list.component'
 import { describe, test, expect, vi } from 'vitest'
 import { givenABasicFilm, givenABasicFilms } from '../../utils/testData'
 
@@ -9,7 +9,7 @@ describe('Films Component', () => {
     const films = givenABasicFilms()
     const emptyOnClick = () => ({})
 
-    render(<FilmsComponent films={films} onClick={emptyOnClick} />)
+    render(<FilmListComponent films={films} onClick={emptyOnClick} />)
 
     films.forEach(film => {
       screen.getByText(film.title)
@@ -24,7 +24,7 @@ describe('Films Component', () => {
     const film = givenABasicFilm()
     const mockOnClick = vi.fn()
 
-    render(<FilmsComponent films={[film]} onClick={mockOnClick} />)
+    render(<FilmListComponent films={[film]} onClick={mockOnClick} />)
     const listElement = screen.getAllByRole('listitem')[0]
 
     fireEvent.click(listElement)

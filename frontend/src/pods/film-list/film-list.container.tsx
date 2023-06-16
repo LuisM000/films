@@ -1,5 +1,5 @@
-import FilmListComponent from './film-list.component'
-import useFilmListContainer from './film-list.container.hook'
+import { FilmListComponent } from './film-list.component'
+import { useFilmListContainer } from './film-list.container.hook'
 import { ErrorComponent, LoadingComponent } from '@/common/components'
 
 export const FilmListContainer: React.FC = () => {
@@ -15,5 +15,3 @@ export const FilmListContainer: React.FC = () => {
 
   return <FilmListComponent films={films} onClick={handleOnClickFilm} />
 }
-
-export default FilmListContainer

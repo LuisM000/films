@@ -5,5 +5,3 @@ export const LoadingComponent = () => {
     </div>
   )
 }
-
-export default LoadingComponent

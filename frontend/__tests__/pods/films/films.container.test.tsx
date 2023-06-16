@@ -1,12 +1,12 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import FilmsContainer from '../../../src/pods/film-list/film-list.container'
-import useFilmsContainer from '../../../src/pods/film-list/film-list.container.hook'
+import { FilmListContainer } from '../../../src/pods/film-list/film-list.container'
+import { useFilmListContainer } from '../../../src/pods/film-list/film-list.container.hook'
 import { describe, test, expect, vi, MockedFunction } from 'vitest'
 import { givenABasicFilms } from '../../utils/testData'
 
 vi.mock('../../../src/pods/film-list/film-list.container.hook')
-const mockUseFilmsContainer = useFilmsContainer as MockedFunction<typeof useFilmsContainer>
+const mockUseFilmsContainer = useFilmListContainer as MockedFunction<typeof useFilmListContainer>
 
 describe('Films Container', () => {
   test('renders component with films', () => {
@@ -19,7 +19,7 @@ describe('Films Container', () => {
       isError: false
     })
 
-    render(<FilmsContainer />)
+    render(<FilmListContainer />)
 
     films.forEach(film => {
       screen.getByText(film.title)
@@ -38,7 +38,7 @@ describe('Films Container', () => {
       isError: false
     })
 
-    render(<FilmsContainer />)
+    render(<FilmListContainer />)
 
     expect(screen).toContainLoading()
   })
@@ -51,7 +51,7 @@ describe('Films Container', () => {
       handleOnClickFilm: vi.fn()
     })
 
-    render(<FilmsContainer />)
+    render(<FilmListContainer />)
 
     expect(screen).toContainError()
   })

@@ -9,6 +9,3 @@ const FilmDetailComponent: React.FC = () => {
     </div>
   )
 }
-
-
-export default FilmDetailComponent

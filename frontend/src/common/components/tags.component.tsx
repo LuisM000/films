@@ -1,5 +1,5 @@
 import React from 'react'
-import TagComponent from './tag.component'
+import { TagComponent } from './tag.component'
 
 interface TagsComponentProps {
   tags: Array<string>
@@ -14,5 +14,3 @@ export const TagsComponent: React.FC<TagsComponentProps> = ({ tags }) => {
     </div>
   )
 }
-
-export default TagsComponent

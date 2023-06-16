@@ -12,7 +12,7 @@ export interface FilmListContainerResult {
   isError: boolean
 }
 
-const useFilmListContainer = (): FilmListContainerResult => {
+export const useFilmListContainer = (): FilmListContainerResult => {
   const navigate = useNavigate()
   const [films, setFilms] = useState<BasicFilms>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
@@ -43,5 +43,3 @@ const useFilmListContainer = (): FilmListContainerResult => {
     isError
   }
 }
-
-export default useFilmListContainer

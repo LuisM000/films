@@ -41,5 +41,3 @@ export const RatingComponent: React.FC<RatingComponentProps> = ({ rating }) => {
     </div>
   )
 }
-
-export default RatingComponent

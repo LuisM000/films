@@ -6,7 +6,7 @@ interface FilmCardComponentProps {
   film: BasicFilm;
 }
 
-const FilmCardComponent: React.FC<FilmCardComponentProps> = ({ film }) => {
+export const FilmCardComponent: React.FC<FilmCardComponentProps> = ({ film }) => {
   const tags: Array<string> = ['⚪⚫ foo', '😱 bar']
 
   return (
@@ -26,5 +26,3 @@ const FilmCardComponent: React.FC<FilmCardComponentProps> = ({ film }) => {
     </article>
   )
 }
-
-export default FilmCardComponent
