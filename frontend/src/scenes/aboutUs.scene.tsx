@@ -1,4 +1,4 @@
-import { AboutUsContainer } from '@/pods/aboutUs/aboutUs.container'
+import { AboutUsContainer } from '@/pods'
 
 export const AboutUsScene = () => {
   return <AboutUsContainer />

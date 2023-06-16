@@ -1,11 +1,11 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import FilmsContainer from '../../../src/pods/films/films.container'
-import useFilmsContainer from '../../../src/pods/films/films.container.hook'
+import FilmsContainer from '../../../src/pods/film-list/film-list.container'
+import useFilmsContainer from '../../../src/pods/film-list/film-list.container.hook'
 import { describe, test, expect, vi, MockedFunction } from 'vitest'
 import { givenABasicFilms } from '../../utils/testData'
 
-vi.mock('../../../src/pods/films/films.container.hook')
+vi.mock('../../../src/pods/film-list/film-list.container.hook')
 const mockUseFilmsContainer = useFilmsContainer as MockedFunction<typeof useFilmsContainer>
 
 describe('Films Container', () => {

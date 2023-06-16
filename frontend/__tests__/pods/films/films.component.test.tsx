@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import React from 'react'
-import FilmsComponent from '../../../src/pods/films/films.component'
+import FilmsComponent from '../../../src/pods/film-list/film-list.component'
 import { describe, test, expect, vi } from 'vitest'
 import { givenABasicFilm, givenABasicFilms } from '../../utils/testData'
 

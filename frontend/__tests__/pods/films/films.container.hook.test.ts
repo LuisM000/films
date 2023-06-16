@@ -1,7 +1,7 @@
 import { describe, test, vi, MockedFunction } from 'vitest'
-import useFilmsContainer from '../../../src/pods/films/films.container.hook'
+import useFilmsContainer from '../../../src/pods/film-list/film-list.container.hook'
 import { renderHook, waitFor } from '@testing-library/react'
-import { getFilms } from '../../../src/pods/films/films.api'
+import { getFilms } from '../../../src/pods/film-list/film-list.api'
 import { givenABasicFilms } from '../../utils/testData'
 
 
@@ -13,7 +13,7 @@ vi.mock('react-router-dom', async () => ({
   ...await vi.importActual('react-router-dom') as any,
   useNavigate: () => mockedUsedNavigate,
 }))
-vi.mock('../../../src/pods/films/films.api')
+vi.mock('../../../src/pods/film-list/film-list.api')
 
 
 describe('Films Container Hook', () => {

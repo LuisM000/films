@@ -1,9 +1,9 @@
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { switchRoutes } from './routes'
-import { HomeScene, AboutUsScene } from '@/scenes'
+import { FilmListScene, AboutUsScene } from '@/scenes'
 import { AppLayout } from '@/layout/app.layout'
-import FilmComponent from '@/pods/films/film.component'
+import FilmDetailComponent from '@/pods/film-detail/film-detail.component'
 
 const router = createBrowserRouter([
   {
@@ -12,11 +12,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: switchRoutes.root,
-        element: <HomeScene />,
+        element: <FilmListScene />,
       },
       {
         path: switchRoutes.film,
-        element: <FilmComponent />,
+        element: <FilmDetailComponent />,
       },
       {
         path: switchRoutes.aboutUs,

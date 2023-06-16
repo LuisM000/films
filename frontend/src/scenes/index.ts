@@ -1,2 +1,2 @@
-export * from './films.scene'
+export * from './film-list.scene'
 export * from './aboutUs.scene'

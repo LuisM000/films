@@ -7,7 +7,7 @@ interface FilmsComponentProps {
   onClick?: (filmId: string) => void
 }
 
-const FilmsComponent: React.FC<FilmsComponentProps> = ({ films, onClick }) => {
+const FilmListComponent: React.FC<FilmsComponentProps> = ({ films, onClick }) => {
   return (
     <div role='list' className='columns-1 md:columns-2 lg:columns-3 gap-x-4 mx-4'>
       {
@@ -23,4 +23,4 @@ const FilmsComponent: React.FC<FilmsComponentProps> = ({ films, onClick }) => {
   )
 }
 
-export default FilmsComponent
+export default FilmListComponent

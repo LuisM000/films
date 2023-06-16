@@ -1,18 +1,18 @@
 import { BasicFilms } from 'common/models/basicFilm'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getFilms } from './films.api'
+import { getFilms } from './film-list.api'
 import { linkRoutes } from '@/core/routes'
 
 
-export interface FilmContainerResult {
+export interface FilmListContainerResult {
   films: BasicFilms;
   handleOnClickFilm: (filmId: string) => void;
   isLoading: boolean,
   isError: boolean
 }
 
-const useFilmsContainer = (): FilmContainerResult => {
+const useFilmListContainer = (): FilmListContainerResult => {
   const navigate = useNavigate()
   const [films, setFilms] = useState<BasicFilms>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
@@ -44,4 +44,4 @@ const useFilmsContainer = (): FilmContainerResult => {
   }
 }
 
-export default useFilmsContainer
+export default useFilmListContainer
