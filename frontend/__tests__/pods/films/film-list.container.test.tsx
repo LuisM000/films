@@ -8,7 +8,7 @@ import { givenABasicFilms } from '../../utils/testData'
 vi.mock('../../../src/pods/film-list/film-list.container.hook')
 const mockUseFilmsContainer = useFilmListContainer as MockedFunction<typeof useFilmListContainer>
 
-describe('Films Container', () => {
+describe('Film List Container', () => {
   test('renders component with films', () => {
     const films = givenABasicFilms()
 
