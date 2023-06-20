@@ -1,5 +1,5 @@
 import { describe, test } from 'vitest'
-import { calculateStars } from '../../../src/common/components/rating-utils.component'
+import { calculateStars } from '../../../src/common/components/rating/rating-utils.component'
 
 describe('Rating Utils Component', () => {
 

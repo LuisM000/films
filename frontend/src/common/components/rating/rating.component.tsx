@@ -8,12 +8,12 @@ interface RatingComponentProps {
 const ratingConfig: RatingConfig<JSX.Element> =
 {
   empty: (
-    <svg className="fill-slate-300 w-6 h-6" viewBox="0 0 24 24">
+    <svg data-testid='star-empty' className="fill-slate-300 w-6 h-6" viewBox="0 0 24 24">
       <path d="M12 1.054l2.705 8.309h8.776l-7.095 5.17 2.73 8.41-7.116-5.196-7.116 5.196 2.73-8.41-7.095-5.17h8.776z" />
     </svg>
   ),
   half: (
-    <svg className="fill-slate-300 w-6 h-6" viewBox="0 0 24 24">
+    <svg data-testid='star-half' className="fill-slate-300 w-6 h-6" viewBox="0 0 24 24">
       <defs>
         <linearGradient id="grad">
           <stop offset="50%" stopColor="#facc15" />
@@ -24,7 +24,7 @@ const ratingConfig: RatingConfig<JSX.Element> =
     </svg>
   ),
   filled: (
-    <svg className="fill-yellow-400 w-6 h-6" viewBox="0 0 24 24">
+    <svg data-testid='star-filled' className="fill-yellow-400 w-6 h-6" viewBox="0 0 24 24">
       <path d="M12 1.054l2.705 8.309h8.776l-7.095 5.17 2.73 8.41-7.116-5.196-7.116 5.196 2.73-8.41-7.095-5.17h8.776z" />
     </svg>
   )

@@ -16,7 +16,7 @@ vi.mock('react-router-dom', async () => ({
 vi.mock('../../../src/pods/film-list/film-list.api')
 
 
-describe('Films Container Hook', () => {
+describe('Film List Container Hook', () => {
   test('should be load films from API', async () => {
     const films = givenABasicFilms()
     mockGetFilms.mockResolvedValueOnce(films)

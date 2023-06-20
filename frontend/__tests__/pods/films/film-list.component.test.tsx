@@ -4,7 +4,7 @@ import { FilmListComponent } from '../../../src/pods/film-list/film-list.compone
 import { describe, test, expect, vi } from 'vitest'
 import { givenABasicFilm, givenABasicFilms } from '../../utils/testData'
 
-describe('Films Component', () => {
+describe('Film List Component', () => {
   test('renders component with films', () => {
     const films = givenABasicFilms()
     const emptyOnClick = () => ({})
