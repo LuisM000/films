@@ -15,6 +15,9 @@ describe('Film Card Component', () => {
     const image = screen.getByAltText(film.title) as HTMLImageElement
     expect(image.src).toBe(film.mainImage)
     screen.getByTitle(film.rating)
+    film.tags.forEach(tag => {
+      screen.getByText(tag)
+    })
   })
 
   test('renders component with a default image when image is empty', () => {

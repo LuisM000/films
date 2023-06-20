@@ -7,8 +7,6 @@ interface FilmCardComponentProps {
 }
 
 export const FilmCardComponent: React.FC<FilmCardComponentProps> = ({ film }) => {
-  const tags: Array<string> = ['⚪⚫ foo', '😱 bar']
-
   return (
     <article className="bg-slate-50 rounded-xl overflow-hidden dark:bg-slate-800">
       <img className="w-full h-80 object-cover" src={film.mainImage || noImage} alt={film.title}
@@ -22,7 +20,7 @@ export const FilmCardComponent: React.FC<FilmCardComponentProps> = ({ film }) =>
       </div>
       <h2 className='text-2xl font-semibold text-slate-900 m-2'>{film.title}</h2>
       {film.esTitle && <small className='text-slate-700 m-2'>{film.esTitle}</small>}
-      <TagsComponent tags={tags} />
+      <TagsComponent tags={film.tags} />
     </article>
   )
 }
