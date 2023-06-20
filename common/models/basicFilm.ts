@@ -4,6 +4,7 @@ export interface BasicFilm {
   esTitle: string;
   rating: number;
   mainImage: string;
+  tags: string[];
 }
 
 export type BasicFilms = BasicFilm[];

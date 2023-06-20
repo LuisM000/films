@@ -14,7 +14,8 @@ export class PrismaFilmQueries implements FilmQueries {
         originalTitle: true,
         spanishTitle: true,
         rating: true,
-        mainImage: { select: { url: true } }
+        mainImage: { select: { url: true } },
+        tags: { select: { name: true } }
       }
     })
 
@@ -23,7 +24,8 @@ export class PrismaFilmQueries implements FilmQueries {
       title: film.originalTitle,
       esTitle: film.spanishTitle || '',
       rating: film.rating,
-      mainImage: film.mainImage.url
+      mainImage: film.mainImage.url,
+      tags: film.tags.map(tag => tag.name)
     }))
   }
 }

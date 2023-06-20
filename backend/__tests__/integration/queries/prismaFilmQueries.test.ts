@@ -10,7 +10,8 @@ describe('Prisma queries', () => {
       title: 'Sweeney Todd: The Demon Barber of Fleet Street',
       esTitle: 'Sweeney Todd, el barbero diabólico de la calle Fleet',
       rating: 4,
-      mainImage: 'https://pics.filmaffinity.com/sweeney_todd_the_demon_barber_of_fleet_street-551582555-large.jpg'
+      mainImage: 'https://pics.filmaffinity.com/sweeney_todd_the_demon_barber_of_fleet_street-551582555-large.jpg',
+      tags: ['⚪⚫ B/N', '😱 horror']
     }])
     expect(films[0].id).not.toBeEmpty()
   })

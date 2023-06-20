@@ -12,7 +12,8 @@ describe('Films Controller', () => {
       title: 'Mocked Film 1',
       esTitle: 'Película Mockeada 1',
       rating: 9.9,
-      mainImage: 'https://example.com/mock-film1.jpg'
+      mainImage: 'https://example.com/mock-film1.jpg',
+      tags: ['foo', 'bar']
     }]
     const mockGetFilmsUseCase = mock<GetFilmsUseCase>()
     mockGetFilmsUseCase.invoke.mockResolvedValue(allFilms)
