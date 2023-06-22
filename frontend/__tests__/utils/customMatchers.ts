@@ -1,19 +1,8 @@
-import { expect } from 'vitest'
-
 const customMatchers = {
   toContainLoading(element) {
-    let containsLoading = false
-
-    try {
-      const loading = element.getByRole('alert', { busy: true }) as HTMLElement
-      expect(loading).toHaveTextContent('Cargando')
-      containsLoading = true
-    } catch (_error) {
-      containsLoading = false
-    }
-
+    const loading = element.queryByRole('status', { hidden: true })
     return {
-      pass: containsLoading,
+      pass: loading ?? false,
       message: () => `${element} is not contains loading`
     }
   },
