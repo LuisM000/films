@@ -8,7 +8,7 @@ interface FilmCardComponentProps {
 
 export const FilmCardComponent: React.FC<FilmCardComponentProps> = ({ film }) => {
   return (
-    <article className="bg-slate-50 rounded-xl overflow-hidden dark:bg-slate-800">
+    <article className="bg-slate-50 rounded-xl overflow-hidden">
       <img className="w-full h-80 object-cover" src={film.mainImage || noImage} alt={film.title}
         onError={({ currentTarget }) => {
           currentTarget.onerror = null
