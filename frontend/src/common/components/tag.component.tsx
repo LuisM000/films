@@ -5,5 +5,5 @@ interface TagComponentProps {
 }
 
 export const TagComponent: React.FC<TagComponentProps> = ({ tag }) => {
-  return <span key={tag} className='border-2 border-slate-300 rounded-xl px-2 py-0.5'>{tag}</span>
+  return <span key={tag} className='bg-cyan-300 rounded-2xl text-dark text-sm font-medium px-3 py-0.5'>{tag}</span>
 }
