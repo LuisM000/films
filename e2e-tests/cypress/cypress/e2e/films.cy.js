@@ -6,12 +6,15 @@ beforeEach(() => {
 
 describe('Films page', () => {
   it('smoke test: frontpage can be opened', () => {
-    cy.contains('Películas mierder')
+    cy.contains('Mierder Movies')
   })
 
   it('should contains a film and can be navigate', () => {
-    cy.findByRole('list')
+
+    cy.get('main')
+      .findByRole('list')
       .findByRole('listitem')
+      .find('article')
       .contains('Sweeney Todd: The Demon Barber of Fleet Street')
       .click()
 
