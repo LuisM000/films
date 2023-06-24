@@ -5,10 +5,10 @@ export const AppLayout: React.FC = () => {
 
   return (
     <div className='flex flex-col h-screen'>
-      <header>
+      <header className='mb-20'>
         <NavbarComponent />
       </header>
-      <main className='flex-grow pt-20'>
+      <main className='flex-grow'>
         <Outlet />
       </main>
       <footer>Footer</footer>
