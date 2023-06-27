@@ -5,6 +5,7 @@ import { generatePath } from 'react-router'
 export const switchRoutes: SwitchRoutes = {
   root: '/',
   aboutUs: '/aboutUs',
+  contact: '/contact',
   film: '/films/:id'
 }
 
