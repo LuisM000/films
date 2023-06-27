@@ -1,1 +1,1 @@
-export * from './useScrollDirection/useScrollDirection.hook'
+export * from './useScrollDirection.hook'
