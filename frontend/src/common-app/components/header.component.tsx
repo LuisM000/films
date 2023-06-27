@@ -1,5 +1,5 @@
 import { NavbarComponent } from './navbar.component'
-import { Direction, useScrollDirection } from '@/common/hooks/useScrollDirection'
+import { Direction, useScrollDirection } from '@/common/hooks'
 
 export const HeaderComponent = () => {
   const scrollDirection = useScrollDirection()
